@@ -1,6 +1,5 @@
 .container {
-  width: 1000px;
-  min-height: 700px;
+  min-width: 1000px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10,9 +9,6 @@
   background-color: green;
   color: white;
   border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 button {
   font-size: 2rem;
@@ -30,6 +26,11 @@ button:hover {
 span {
   font-size: 0.7em;
 }
+#quiz {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 #page_number {
   display: inline-block;
   width: fit-content;
@@ -41,6 +42,7 @@ span {
 #vocabulary {
   font-size: 5rem;
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 #choices {
   display: grid;
@@ -50,7 +52,7 @@ span {
   margin: 1rem 2rem;
 }
 #results {
-  display: block;
+  display: none;
   padding-left: 3em;
   padding-right: 3em;
   text-align: left;
@@ -58,6 +60,9 @@ span {
   color: green;
   border: 3px solid green;
   border-radius: 15px;
+}
+#results.active {
+  display: block;
 }
 #results h1 {
   font-size: 3rem;

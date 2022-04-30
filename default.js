@@ -1,14 +1,30 @@
-// Words Data
-const words = {
-  word: '단어',
-  ship: '배',
-  sheep: '양',
-  movie: '영화',
-  test: '시험',
-  smile: '웃음',
-  car: '자동차',
-  house: '집',
-};
+// Initial set values
+let words = {};
+let total_pages = 0;
+let page_number = 1;
+
+let unremoved_words = {};
+let key_prop = '';
+let answer = '';
+
+// Get words
+async function fetchJson() {
+  const response = await fetch('./words.json');
+
+  if (response.status === 200) {
+    data = await response.json();
+    words = data.words;
+    total_pages = Object.keys(words).length;
+    unremoved_words = words;
+
+    // First question
+    choose_word();
+  } else {
+    fetchJson();
+  }
+}
+
+fetchJson();
 
 // Remove property
 function withoutProperty(obj, property) {
@@ -16,21 +32,14 @@ function withoutProperty(obj, property) {
   return rest;
 }
 
-// Initial set values
-const total_pages = Object.keys(words).length;
-let page_number = 1;
-
-let unremoved_words = words;
-let key_prop = '';
-let answer = '';
-
 // Select Question
 let results = [];
 const choose_word = () => {
+  console.log(words, unremoved_words);
   const keys = Object.keys(unremoved_words);
   key_prop = keys[Math.floor(Math.random() * keys.length)];
   answer = unremoved_words[key_prop];
-
+  console.log(unremoved_words, keys, key_prop, answer);
   // Go to result page when it's done
   if (Object.keys(unremoved_words).length == 0) {
     print_results();
@@ -64,7 +73,7 @@ const choose_word = () => {
   };
 
   shuffleArray(options);
-  
+
   let choices = '';
 
   // Display the Options
@@ -89,7 +98,7 @@ const choose_word = () => {
     });
     choose_word();
     return;
-  }, 3000);
+  }, 5000);
 
   // Click Answer
   document.querySelectorAll('#choices .answers').forEach((e) => {
@@ -106,17 +115,12 @@ const choose_word = () => {
   });
 };
 
-// First question
-choose_word();
-
 // Print results
 const print_results = () => {
-  document.querySelector('#page_number').style.display = 'none';
-  document.querySelector('#vocabulary').style.display = 'none';
-  document.querySelector('#choices').style.display = 'none';
+  document.querySelector('#quiz').style.display = 'none';
   const print = document.createElement('div');
-  const container = document.querySelector('.container');
-  container.setAttribute('id', 'results');
+  const container = document.querySelector('#results');
+  container.setAttribute('class', 'active');
   const title = document.createElement('h1');
   let count = 1;
   let right_number = 0;
