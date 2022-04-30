@@ -1,6 +1,6 @@
 .container {
   width: 1000px;
-  height: 700px;
+  min-height: 700px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -14,11 +14,38 @@
   flex-direction: column;
   justify-content: space-around;
 }
+button {
+  font-size: 2rem;
+  padding: 1rem 3rem;
+  border: 2px solid white;
+  border-radius: 15px;
+  background-color: white;
+  color: green;
+  cursor: pointer;
+}
+button:hover {
+  background-color: green;
+  color: white;
+}
+span {
+  font-size: 0.7em;
+}
+#page_number {
+  display: inline-block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 2rem;
+  height: 0;
+  font-size: 2rem;
+}
 #vocabulary {
   font-size: 5rem;
+  margin-top: 0;
 }
 #choices {
-  font-size: 2rem;
   display: grid;
   grid-template-columns: repeat(2, 50%);
+}
+#choices button {
+  margin: 1rem 2rem;
 }
