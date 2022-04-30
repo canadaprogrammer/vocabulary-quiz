@@ -79,6 +79,18 @@ const choose_word = () => {
   console.log(document.querySelectorAll('#choices .answers'));
 
   // Save results
+  // Skip question after 3 seconds
+  const timeout = setTimeout(() => {
+    results.push({
+      question: key_prop,
+      answer: answer,
+      selected: 'No Select',
+      bool: false,
+    });
+    choose_word();
+    return;
+  }, 3000);
+
   // Click Answer
   document.querySelectorAll('#choices .answers').forEach((e) => {
     e.addEventListener('click', function (evt) {
