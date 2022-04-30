@@ -64,7 +64,7 @@ const choose_word = () => {
   };
 
   shuffleArray(options);
-
+  
   let choices = '';
 
   // Display the Options
@@ -108,3 +108,33 @@ const choose_word = () => {
 
 // First question
 choose_word();
+
+// Print results
+const print_results = () => {
+  document.querySelector('#page_number').style.display = 'none';
+  document.querySelector('#vocabulary').style.display = 'none';
+  document.querySelector('#choices').style.display = 'none';
+  const print = document.createElement('div');
+  const container = document.querySelector('.container');
+  container.setAttribute('id', 'results');
+  const title = document.createElement('h1');
+  let count = 1;
+  let right_number = 0;
+  let element = '';
+  results.forEach((r) => {
+    if (r.bool) right_number++;
+
+    element += `<p class="${r.bool ? 'right' : 'wrong'}">${count++}. ${
+      r.question
+    }: ${r.answer} <span>${r.bool ? '' : '(' + r.selected + ')'}</span></p>`;
+  });
+  title.innerHTML = `Results <span>( ${right_number} / ${total_pages} )</span>`;
+  container.appendChild(title);
+  container.appendChild(print);
+  print.innerHTML = element;
+
+  const button = document.createElement('button');
+  button.setAttribute('onclick', 'window.location.reload()');
+  button.innerText = 'Restart';
+  container.appendChild(button);
+};

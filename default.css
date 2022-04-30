@@ -49,3 +49,35 @@ span {
 #choices button {
   margin: 1rem 2rem;
 }
+#results {
+  display: block;
+  padding-left: 3em;
+  padding-right: 3em;
+  text-align: left;
+  background-color: white;
+  color: green;
+  border: 3px solid green;
+  border-radius: 15px;
+}
+#results h1 {
+  font-size: 3rem;
+}
+#results p {
+  display: inline-block;
+  width: 50%;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom:1rem;
+}
+#results p.right {
+  color: green;
+}
+#results p.wrong {
+  color: red;
+}
+#results button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-color: green;
+}
