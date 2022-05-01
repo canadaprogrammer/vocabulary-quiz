@@ -1,0 +1,23 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "- Multiple choice quiz",
+  "main": "default.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canadaprogrammer/vocabulary-quiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/canadaprogrammer/vocabulary-quiz/issues"
+  },
+  "homepage": "https://github.com/canadaprogrammer/vocabulary-quiz",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}

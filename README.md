@@ -15,3 +15,23 @@
 - Quiz vocabularies of the Day
 
 - Results and Restart
+
+## gh-pages
+
+- ```bash
+  npm init -y
+  npm i gh-pages
+  ```
+
+- Create `dist` folder and move `default.css`, `default.js`, and `index.html` into the folder
+
+- On `package.json`
+
+  - ```json
+    "scripts": {
+      "deploy": "gh-page -d dist"
+    },
+    "homepage": "https://https://canadaprogrammer.github.io/vocabulary-quiz",
+    ```
+
+- Create `.gitignore` and put `node_module` in it

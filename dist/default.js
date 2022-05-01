@@ -156,6 +156,9 @@ const choose_word = () => {
 
 // Print results
 const print_results = () => {
+  document
+    .querySelector('.container')
+    .setAttribute('class', 'container-results');
   document.querySelector('#quiz').style.display = 'none';
   const print = document.createElement('div');
   const container = document.querySelector('#results');
