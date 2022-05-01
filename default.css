@@ -26,10 +26,33 @@ button:hover {
 span {
   font-size: 0.7em;
 }
+#days {
+  display: none;
+}
+#days.active {
+  display: block;
+}
+#days h2 {
+  font-size: 3rem;
+}
+#days_option {
+  display: grid;
+  grid-template-columns: repeat(6, 16.66%);
+}
+.day_wrapper {
+  direction: rtl;
+}
+.day_wrapper label {
+  font-size: 2rem;
+  margin-left: 8px;
+}
 #quiz {
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
+  display: none;
+}
+#quiz {
+  display: flex;
 }
 #page_number {
   display: inline-block;
@@ -64,8 +87,16 @@ span {
 #results.active {
   display: block;
 }
+#results_day {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
 #results h1 {
   font-size: 3rem;
+  margin-top: 4rem;
 }
 #results p {
   display: inline-block;
@@ -82,7 +113,7 @@ span {
 }
 #results button {
   position: absolute;
-  top: 1rem;
+  top: 4rem;
   right: 1rem;
   border-color: green;
 }

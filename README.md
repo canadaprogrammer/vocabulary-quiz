@@ -7,3 +7,11 @@
 - Random vocabulary order and the answer choices
 
 - Show results after finishing quiz
+
+## Steps
+
+- Choose Day
+
+- Quiz vocabularies of the Day
+
+- Results and Restart

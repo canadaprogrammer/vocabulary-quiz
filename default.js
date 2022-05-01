@@ -1,4 +1,5 @@
 // Initial set values
+let day = '';
 let words = {};
 let total_pages = 0;
 let page_number = 1;
@@ -8,23 +9,61 @@ let key_prop = '';
 let answer = '';
 
 // Get words
+
 async function fetchJson() {
   const response = await fetch('./words.json');
 
   if (response.status === 200) {
-    data = await response.json();
-    words = data.words;
-    total_pages = Object.keys(words).length;
-    unremoved_words = words;
-
-    // First question
-    choose_word();
+    const data = await response.json();
+    showDays(data);
   } else {
     fetchJson();
   }
 }
 
 fetchJson();
+
+// Show Days
+function showDays(data) {
+  const days = Object.keys(data);
+  console.log(days);
+  const div_days = document.querySelector('#days_option');
+  days.forEach((day) => {
+    const day_wrapper = document.createElement('div');
+    day_wrapper.setAttribute('class', 'day_wrapper');
+    const text = 'day_' + day;
+    const input = document.createElement('input');
+    input.setAttribute('type', 'radio');
+    input.setAttribute('id', text);
+    input.setAttribute('name', 'days');
+    input.setAttribute('value', day);
+    const label = document.createElement('label');
+    label.setAttribute('for', text);
+    label.innerText = 'Day ' + day;
+    day_wrapper.appendChild(label);
+    day_wrapper.appendChild(input);
+    div_days.appendChild(day_wrapper);
+  });
+  const radio_days = document.querySelectorAll('input[name="days"]');
+  console.log(radio_days);
+  radio_days.forEach((d) => {
+    d.addEventListener('change', (event) => {
+      day = event.target.value;
+      chooseDay(data, day);
+      document.querySelector('#days').setAttribute('class', '');
+    });
+  });
+}
+
+// Choose day
+function chooseDay(data, day) {
+  console.log(data, day);
+  words = data[day].words;
+  total_pages = Object.keys(words).length;
+  unremoved_words = words;
+  // First question
+  choose_word();
+}
 
 // Remove property
 function withoutProperty(obj, property) {
@@ -121,6 +160,10 @@ const print_results = () => {
   const print = document.createElement('div');
   const container = document.querySelector('#results');
   container.setAttribute('class', 'active');
+  const showDay = document.createElement('div');
+  showDay.setAttribute('id', 'results_day');
+  showDay.innerText = 'Day ' + day;
+  container.appendChild(showDay);
   const title = document.createElement('h1');
   let count = 1;
   let right_number = 0;
