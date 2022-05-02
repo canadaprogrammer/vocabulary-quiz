@@ -121,7 +121,7 @@ const choose_word = () => {
   });
   document.querySelector(
     '#page_number'
-  ).innerHTML = `<span>${page_number++} / ${total_pages}</span>`;
+  ).innerHTML = `${page_number++} / ${total_pages}`;
   document.querySelector('#vocabulary').innerHTML = key_prop;
   document.querySelector('#choices').innerHTML = choices;
   console.log(document.querySelectorAll('#choices .answers'));
