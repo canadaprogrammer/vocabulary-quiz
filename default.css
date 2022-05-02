@@ -114,7 +114,7 @@ span {
 #results p {
   display: inline-block;
   width: 50%;
-  font-size: 2rem;
+  font-size: 1.3rem;
   margin-top: 0;
   margin-bottom:1rem;
 }
@@ -129,4 +129,9 @@ span {
   top: 4rem;
   right: 1rem;
   border-color: green;
+}
+@media only screen and (max-width: 1199px) {
+  #results p {
+    width: 100%;
+  }
 }
