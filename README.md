@@ -35,3 +35,5 @@
     ```
 
 - Create `.gitignore` and put `node_module` in it
+
+- `npm run deploy`
