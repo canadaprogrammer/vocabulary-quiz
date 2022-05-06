@@ -32,9 +32,11 @@ button {
   color: green;
   cursor: pointer;
 }
-button:hover {
-  background-color: green;
-  color: white;
+@media only screen and (min-width: 992px) {
+  button:hover {
+    background-color: green;
+    color: white;
+  }
 }
 span {
   font-size: 0.7em;
