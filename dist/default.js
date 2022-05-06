@@ -8,8 +8,10 @@ let unremoved_words = {};
 let key_prop = '';
 let answer = '';
 
-// Get words
+// Text to Speech
+const synth = window.speechSynthesis;
 
+// Get words
 async function fetchJson() {
   const response = await fetch('./words.json');
 
@@ -85,6 +87,20 @@ const choose_word = () => {
     return;
   }
 
+  // Text-To-Speech
+  // voice.name = 'Microsoft Linda - English (Canada)';
+  // voice.lang = 'en-CA';
+
+  const voices = synth.getVoices();
+  const utterThis = new SpeechSynthesisUtterance();
+  utterThis.voice = voices['2'];
+  utterThis.volume = 2;
+  utterThis.pitch = 1.5;
+  utterThis.rate = 1;
+  utterThis.text = key_prop;
+  synth.speak(utterThis);
+
+  // Remove Chosen word from remained Words
   unremoved_words = withoutProperty(unremoved_words, key_prop);
 
   // Selecting Answers for Options

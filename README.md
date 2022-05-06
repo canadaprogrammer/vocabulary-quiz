@@ -16,6 +16,37 @@
 
 - Results and Restart
 
+## Get works by using fetch
+
+- ```js
+  async function fetchJson() {
+    const response = await fetch('./words.json');
+
+    if (response.status === 200) {
+      const data = await response.json();
+      showDays(data);
+    } else {
+      fetchJson();
+    }
+  }
+
+  fetchJson();
+  ```
+
+## Text to Speech
+
+- ```js
+  const synth = window.speechSynthesis;
+  const voices = synth.getVoices();
+  const utterThis = new SpeechSynthesisUtterance();
+  utterThis.voice = voices['2'];
+  utterThis.volume = 2;
+  utterThis.pitch = 1.5;
+  utterThis.rate = 1;
+  utterThis.text = key_prop;
+  synth.speak(utterThis);
+  ```
+
 ## gh-pages
 
 - ```bash
