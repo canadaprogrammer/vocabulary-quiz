@@ -93,9 +93,10 @@ const choose_word = () => {
 
   const voices = synth.getVoices();
   const utterThis = new SpeechSynthesisUtterance();
-  utterThis.voice = voices['2'];
+  console.log(voices);
+  utterThis.voice = voices['6'];
   utterThis.volume = 2;
-  utterThis.pitch = 1.5;
+  utterThis.pitch = 1;
   utterThis.rate = 1;
   utterThis.text = key_prop;
   synth.speak(utterThis);
