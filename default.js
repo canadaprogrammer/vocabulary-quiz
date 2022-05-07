@@ -143,6 +143,16 @@ const choose_word = () => {
   document.querySelector('#choices').innerHTML = choices;
   console.log(document.querySelectorAll('#choices .answers'));
 
+  let countDown = 5;
+  document.querySelector('#count_down').innerHTML = countDown;
+  document.querySelector('#count_down').style.color = 'white';
+  const countDownInterval = setInterval(() => {
+    document.querySelector('#count_down').innerHTML = --countDown;
+    if (countDown < 3) {
+      document.querySelector('#count_down').style.color = 'red';
+    }
+  }, 1000);
+
   // Save results
   // Skip question after 3 seconds
   const timeout = setTimeout(() => {
@@ -152,6 +162,7 @@ const choose_word = () => {
       selected: 'No Select',
       bool: false,
     });
+    clearInterval(countDownInterval);
     choose_word();
     return;
   }, 5000);
