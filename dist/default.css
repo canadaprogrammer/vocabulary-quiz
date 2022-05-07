@@ -69,6 +69,13 @@ span {
 #quiz {
   display: flex;
 }
+#count_down {
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  font-size: 4rem;
+  font-weight: bold;
+}
 #page_number {
   display: inline-block;
   width: fit-content;
@@ -164,6 +171,9 @@ span {
   }
   #quiz {
     padding-bottom: 1rem;
+  }
+  #count_down {
+    font-size: 2rem;
   }
   #vocabulary {
     font-size: 1.5rem;

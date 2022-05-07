@@ -71,8 +71,4 @@
 
 # Todo
 
-- display countdown
-
 - add effect when word is changing
-
-- fixing when word was changed, the selection would be initialized on mobile
