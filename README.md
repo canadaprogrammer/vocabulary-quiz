@@ -68,7 +68,3 @@
 - Create `.gitignore` and put `node_module` in it
 
 - `npm run deploy`
-
-# Todo
-
-- add effect when word is changing
